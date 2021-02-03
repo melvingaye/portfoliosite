@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from '../utilities/Button';
 import { Link } from 'react-router-dom';
 import {
   FaLinkedin,
@@ -8,7 +7,7 @@ import {
   FaGithub
 } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib'
-import { MdFingerprint } from 'react-icons/md';
+
 
 function Footer() {
   return (

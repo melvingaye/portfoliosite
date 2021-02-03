@@ -11,11 +11,6 @@ const ContactForm = () =>{
         document.title='Melvin Gaye - Contact me today!'
     },[name,phoneNumber,email,message])
 
-    const handleSubmit = (e) => {
-        
-        console.log(`Name: ${name}, Phone:${phoneNumber} Email:${email} Message: ${message}`)
-    }
-
     return(
         <div className="form-content-right">           
             <form className="form" method="post" action="mailto:melvind.gaye@gmail.com">
