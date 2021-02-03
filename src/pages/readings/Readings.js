@@ -10,7 +10,7 @@ function Readings(){
 
 
     useEffect(()=>{
-        document.title='Melvin Gaye - Reading List'
+        document.title='Melvin - Reading List'
     })
 
     return(
