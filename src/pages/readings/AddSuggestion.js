@@ -11,13 +11,6 @@ export const AddNewSuggestion = () =>{
     const {dispatch} = useReading()
     const [showForm, setForm] = useState(false)
 
-    toast.configure({position: "bottom-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined})
 
     const handleSubmit = (e) =>{
         // if(titleRef.current.value === '' && authorRef.current.value === ''){
@@ -26,7 +19,7 @@ export const AddNewSuggestion = () =>{
         // else
         // {
             dispatch({type: 'ADD', payload: {title: titleRef.current.value, author: authorRef.current.value}})
-            toast.success('🦄 Suggestion sumbitted for approval, Enjoy the preview of it!')
+            toast.success('🦄 Suggestion sumbitted for approval, here\'s a preview of it!')
             titleRef.current.value = ''
             authorRef.current.value = ''
             setForm(false); 
@@ -54,7 +47,16 @@ export const AddNewSuggestion = () =>{
     return(
         <div className="hover" style={{display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
            <h6 onClick={()=>setForm(true)}>+ Add a book suggestion</h6> 
-           <ToastContainer />
+           <ToastContainer 
+           position="bottom-right"
+           autoClose={5000}
+           hideProgressBar={false}
+           closeOnClick={true}
+           pauseOnHover={true}
+           draggable={true}
+           progress={undefined}
+           />
         </div>
     )
 }
+
