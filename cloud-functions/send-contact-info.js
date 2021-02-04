@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 exports.handler = async (event) => {
   // Only allow POST
@@ -15,8 +15,9 @@ exports.handler = async (event) => {
   const message = params.message || "World";
 
   const {name, phone, email, content} = message
+
   // Send to Slack
-  return fetch(process.env.SLACK_WEBHOOK_URL, {
+  return axios(process.env.SLACK_WEBHOOK_URL, {
     headers: {
       "content-type": "application/json"
     },
@@ -25,7 +26,7 @@ exports.handler = async (event) => {
   })
     .then((res) => ({
       statusCode: 200,
-      body: `Your suggestion has been received for approval 👋!`
+      body: `Your contact information is on it's way 👋!`
     }))
     .catch(error => ({
       statusCode: 422,

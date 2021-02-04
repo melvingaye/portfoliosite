@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react"
 import { v4 as uuidv4 } from 'uuid';
+import {sendBookSuggestion} from '../../apis/requests'
 
 const ReadingCollection = [
   {
@@ -51,6 +52,8 @@ function addNewBook(state, title, author) {
     review: "",
     link: "",
   };
+  debugger
+  sendBookSuggestion(rec)
   return state.map((item, i) => i === 3 ? { ...item, books: item.books.concat(rec) } : item);
 }
 
