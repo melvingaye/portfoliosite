@@ -52,7 +52,7 @@ function addNewBook(state, title, author) {
     review: "",
     link: "",
   };
-  sendBookSuggestion(JSON.stringify(rec))
+  sendBookSuggestion(rec)
   return state.map((item, i) => i === 3 ? { ...item, books: item.books.concat(rec) } : item);
 }
 
