@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "cd functions/cloud-functions && yarn install",
+    "prebuild": "cd cloud-functions && yarn install",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
