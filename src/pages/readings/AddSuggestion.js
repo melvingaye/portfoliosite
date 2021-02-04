@@ -11,7 +11,7 @@ export const AddNewSuggestion = () =>{
     const {dispatch} = useReading()
     const [showForm, setForm] = useState(false)
 
-    const notify = () => toast.success('🦄 Wow so easy!', {
+    const notify = () => toast.success('🦄 Suggestion sumbitted for approval, Enjoy the preview of it!', {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
