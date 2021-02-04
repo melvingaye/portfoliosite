@@ -11,30 +11,26 @@ export const AddNewSuggestion = () =>{
     const {dispatch} = useReading()
     const [showForm, setForm] = useState(false)
 
-    const notify = () => toast.success('🦄 Suggestion sumbitted for approval, Enjoy the preview of it!', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
+    toast.configure({position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined})
 
     const handleSubmit = (e) =>{
-        if(titleRef.current.value !== '' && authorRef.current.value !== ''){
+        // if(titleRef.current.value === '' && authorRef.current.value === ''){
+        //     toast.error('🚨 You missed some required fields!')       
+        // }
+        // else
+        // {
             dispatch({type: 'ADD', payload: {title: titleRef.current.value, author: authorRef.current.value}})
-        }
-        else
-        {
-        
-        }
-        
-        notify()
-        titleRef.current.value = ''
-        authorRef.current.value = ''
-        setForm(false);     
-        
+            toast.success('🦄 Suggestion sumbitted for approval, Enjoy the preview of it!')
+            titleRef.current.value = ''
+            authorRef.current.value = ''
+            setForm(false); 
+        // }
     }
 
 
@@ -45,12 +41,10 @@ export const AddNewSuggestion = () =>{
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <label style={{paddingRight: '5px'}}>Title:</label>
                     <input type="text" placeholder="Enter book title" ref={titleRef}/>
-                    <span>Title is a required field</span>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <label style={{paddingRight: '5px'}}>Author:</label>
                     <input type="text" placeholder="Enter book author" ref={authorRef}/>
-                    <span>Author is a required field</span>
                 </div>
                 <button type="submit">Add Suggestion</button>
                 </form>
