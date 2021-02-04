@@ -20,9 +20,9 @@ exports.handler = async (event, context) => {
     method: "POST",
     body: JSON.stringify({ text: `${name} says hello!` })
   })
-    .then(() => ({
+    .then((res) => ({
       statusCode: 200,
-      body: `Hello, ${name}! Your greeting has been sent to Slack 👋`
+      body: `Hello, ${name}! Slack says ${res} 👋`
     }))
     .catch(error => ({
       statusCode: 422,
