@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
   })
     .then((res) => ({
       statusCode: 200,
-      body: `Hello, ${name}! Slack says ${JSON.stringify(res)} 👋`
+      body: `Hello, ${process.env.SLACK_WEBHOOK_URL}! Slack says ${JSON.stringify(res)} 👋`
     }))
     .catch(error => ({
       statusCode: 422,
