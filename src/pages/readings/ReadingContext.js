@@ -31,7 +31,13 @@ const ReadingCollection = [
 ]
 
 function sortBooks(state, index, ascending){ 
-  return ascending ? state[index].books.sort((a, b)=> a.title.localeCompare(b.title)) : state[index].books.sort((a, b)=> b.title.localeCompare(a.title))
+  if(!ascending){
+    state[index].books.sort((a, b)=> a.title.localeCompare(b.title))
+  }else{
+    state[index].books.sort((a, b)=> b.title.localeCompare(a.title))
+  }
+  //return ascending ? state[index].books.sort((a, b)=> a.title.localeCompare(b.title)) : state[index].books.sort((a, b)=> b.title.localeCompare(a.title))
+  return state
 }
 
 ///use this for submitting new books and contact out reaches https://functions-playground.netlify.app/

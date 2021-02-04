@@ -14,18 +14,18 @@ exports.handler = async (event) => {
   console.log(params.message)
   const message = params.message || "World";
 
-  const {isbn, title, author, description, review, purchase } = message
+  const {name, phone, email, content} = message
   // Send to Slack
   return fetch(process.env.SLACK_WEBHOOK_URL, {
     headers: {
       "content-type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ text: `${isbn} ${title} ${author} ${description} ${review} ${purchase}` })
+    body: JSON.stringify({ text: `From: ${name} Phone: ${phone} Email: ${email} Message: ${content}` })
   })
     .then((res) => ({
       statusCode: 200,
-      body: `Your contact information is on it's way 👋!`
+      body: `Your suggestion has been received for approval 👋!`
     }))
     .catch(error => ({
       statusCode: 422,

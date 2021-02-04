@@ -20,7 +20,7 @@ export const Column = ({content, index, query}) =>{
 
     useEffect(()=>{
         document.title='Melvin Gaye - Reading List'
-    },[state])
+    })
 
     return index !== 3 ?
     (
