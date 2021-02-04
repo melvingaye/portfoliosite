@@ -22,8 +22,14 @@ export const AddNewSuggestion = () =>{
         });
 
     const handleSubmit = (e) =>{
-        //e.preventDefault()
-        dispatch({type: 'ADD', payload: {title: titleRef.current.value, author: authorRef.current.value}})
+        if(titleRef.current.value !== '' && authorRef.current.value !== ''){
+            dispatch({type: 'ADD', payload: {title: titleRef.current.value, author: authorRef.current.value}})
+        }
+        else
+        {
+        
+        }
+        
         notify()
         titleRef.current.value = ''
         authorRef.current.value = ''
@@ -39,10 +45,12 @@ export const AddNewSuggestion = () =>{
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <label style={{paddingRight: '5px'}}>Title:</label>
                     <input type="text" placeholder="Enter book title" ref={titleRef}/>
+                    <span>Title is a required field</span>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <label style={{paddingRight: '5px'}}>Author:</label>
                     <input type="text" placeholder="Enter book author" ref={authorRef}/>
+                    <span>Author is a required field</span>
                 </div>
                 <button type="submit">Add Suggestion</button>
                 </form>
