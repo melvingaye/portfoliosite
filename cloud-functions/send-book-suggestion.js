@@ -21,7 +21,7 @@ exports.handler = async (event) => {
       "content-type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ text: `isbn: ${isbn} title: ${title} author: ${author} description: ${description} review: ${review} purchase: ${purchase}}` })
+    body: JSON.stringify({ text: `isbn: ${isbn} title: ${title} author: ${author} description: ${description} review: ${review} purchase: ${purchase}` })
   })
     .then((res) => ({
       statusCode: 200,
