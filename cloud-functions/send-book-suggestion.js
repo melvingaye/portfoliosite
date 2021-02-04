@@ -1,7 +1,6 @@
-const querystring = require('querystring');
 const fetch = require('node-fetch');
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   // Only allow POST
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -12,20 +11,20 @@ exports.handler = async (event, context) => {
   console.log(JSON.stringify(event))
   const params = JSON.parse(event.body);
 
-  console.log(params.name)
-  const name = params.name || "World";
+  console.log(params.message)
+  const message = params.message || "World";
 
-  // Send greeting to Slack
+  // Send to Slack
   return fetch(process.env.SLACK_WEBHOOK_URL, {
     headers: {
       "content-type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ text: `${name} says hello!` })
+    body: JSON.stringify({ text: message })
   })
     .then((res) => ({
       statusCode: 200,
-      body: `Hello, ${process.env.SLACK_WEBHOOK_URL}! Slack says ${JSON.stringify(res)} 👋`
+      body: `Your suggestion has been received for approval 👋!`
     }))
     .catch(error => ({
       statusCode: 422,
