@@ -1,14 +1,14 @@
 import axios from 'axios'
 
 function sendBookSuggestion(mesg){
-    axios.post(process.env.BOOK_END_POINT,mesg)
+    axios.post('/.netlify/functions/send-contact-info',mesg)
     .then( res =>{console.log(res)})
     .catch( err =>{console.log(err)})
 }
 
 function sendContactInfo(mesg){
     debugger
-    axios.post(process.env.CONTACT_END_POINT,mesg)
+    axios.post('/.netlify/functions/send-book-suggestion',mesg)
     .then( res =>{console.log(res)})
     .catch( err =>{console.log(err)})
 }
