@@ -20,7 +20,7 @@ exports.handler = async (event) => {
       "content-type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify({ text: JSON.stringify(message) })
+    body: JSON.stringify({ text: message })
   })
     .then((res) => ({
       statusCode: 200,
