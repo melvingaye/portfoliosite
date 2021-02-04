@@ -9,7 +9,10 @@ exports.handler = async (event, context) => {
 
   // When the method is POST, the name will no longer be in the event’s
   // queryStringParameters – it’ll be in the event body encoded as a queryString
-  const params = querystring.parse(event.body);
+  console.log(JSON.stringify(event))
+  const params = JSON.parse(event.body);
+
+  console.log(params.name)
   const name = params.name || "World";
 
   // Send greeting to Slack
