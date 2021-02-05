@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import './Contact.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {sendContactInfo} from '../../apis/requests'
 
 const ContactForm = () =>{
     const [name, setName] = useState('')
@@ -7,13 +10,29 @@ const ContactForm = () =>{
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
+    const handleSubmit = e =>{
+        e.preventDefault()
+        var contact = {
+            name: name,
+            phone: phoneNumber,
+            email: email,
+            content: message
+        }
+        sendContactInfo(contact)
+        setName('')
+        setPhoneNumber('')
+        setEmail('')
+        setMessage('')
+        toast.success(`Your contact information is on it's way 👋!`)
+    }
+
     useEffect(()=>{
         document.title='Melvin Gaye - Contact me today!'
-    },[name,phoneNumber,email,message])
+    })
 
     return(
         <div className="form-content-right">           
-            <form className="form" method="post" action="mailto:melvind.gaye@gmail.com">
+            <form className="form" onSubmit={handleSubmit}>
             <h1>Get started with your custom project. Get in touch by filling out the form below! </h1>
                 <div className="form-inputs">
                     <label htmlFor="name" className="form-label">Name: </label>
@@ -33,7 +52,6 @@ const ContactForm = () =>{
                         id="phoneNumber" 
                         name="phoneNumber" 
                         type="tel" 
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         placeholder="Enter your phone number" 
                         onChange={(event)=>{setPhoneNumber(event.target.value)}}
                         value={phoneNumber}
@@ -68,6 +86,15 @@ const ContactForm = () =>{
                 </div>
                 <button className="form-input-btn">Contact Me</button>
             </form>
+            <ToastContainer 
+           position="bottom-right"
+           autoClose={5000}
+           hideProgressBar={false}
+           closeOnClick={true}
+           pauseOnHover={true}
+           draggable={true}
+           progress={undefined}
+           />
         </div>
     )
 }
