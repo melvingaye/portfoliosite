@@ -1,5 +1,5 @@
 .navbar {
-  background-color: white;
+  background: transparent;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -8,7 +8,12 @@
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.scroll-active {
+  background-color: white;
   box-shadow: 0px 2px 2px grey;
+  transition: background-color .3s linear;
 }
 
 .navbar-container {
@@ -127,7 +132,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    transform: translate(5%, 0%);
   }
 
   .menu-icon {
@@ -135,7 +140,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-100%, 20%);
     font-size: 1.8rem;
     cursor: pointer;
   }

@@ -16,8 +16,23 @@
   font-size: 3rem;
 }
 
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
 :root {
   --brandColor: 15, 82, 186;
   --secondaryColor: 255, 252, 252;
   --textColor: 17, 17, 17;
 }
+/*#0033FF - nice blue*/
