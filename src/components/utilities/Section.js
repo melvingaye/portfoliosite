@@ -33,7 +33,9 @@ export const Section = (props) =>{
                     </Hero.Wrapper>
                 </Hero.HeroColumn>
                 <Hero.HeroColumn>
-                    Random Text Here
+                    <Hero.ImageWrapper>
+                        <Hero.ImageHolder imageSource={props.imageSource} scaleSize={props.scaleSize}/>
+                    </Hero.ImageWrapper>
                 </Hero.HeroColumn>
             </Hero.HeroRow>
             </div>

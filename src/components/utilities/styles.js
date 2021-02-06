@@ -1,8 +1,17 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+
+const fadeIn = keyframes`
+0%, 50%, 100% {
+    opacity: 1;
+ }
+ 25%, 75% {
+    opacity: 0;
+ }
+`
 
 export const HeroSection = styled.div
 `
-background-color: ${props => props.isBackgroundDark ? '#111' : '#fff'};
+background-color: ${props => props.isBackgroundDark ? '#f5f5f5' : '#fff'};
 padding: 160px 0;
 `
 
@@ -45,7 +54,7 @@ padding-bottom: 60px;
 
 export const TopLine = styled.div
 `
-color: #f00946;
+color: ${props => props.topLineColor || '#f00946'};
 font-size: 16px;
 line-height: 16px;
 font-weight: 700;
@@ -69,10 +78,76 @@ max-width: 440px;
 margin-bottom: 35px;
 font-size: 18px;
 line-height: 24px;
-color: ${props => props.isDarkDescription ? '#fff' : '#111'};
+color: ${props => props.isDarkDescription || '#111'};
 `
 
+export const ImageWrapper = styled.div
+`
+max-width: 555px;
+`
+
+export const ImageHolder = styled.img.attrs(props=>({
+    src: props.imageSource || '/images/img-1.svg'
+}))
+`
+max-width: 95%;
+margin-top: 0;
+margin-right: 0;
+margin-left: 10px;
+padding-right: 0;
+
+@media(min-width: 1200px){
+    transform: ${props => `scale(${props.scaleSize})` || 'scale(1)'};
+    margin-left: 25px;
+}
+`
+
+export const LandingInput = styled.input
+`
+flex-basis: 1;
+width: 80%;
+border-radius: 4px;
+padding-left: 10px;
+border: 1px solid #dadada;
+margin-bottom: 15px;
+line-height: 45px;
+outline: none;
+
+&:focus{
+    border-color: #111;
+    box-shadow: 0 0 8px 0 #111;
+}
+`
 export const HeroButton = styled.button
 `
+padding: 14px 20px;
+border-radius: 4px;
+width: 80%;
+text-decoration: none;
+font-size: 20px;
+outline: none;
+background: #111;
+color: #fff;
+border: #111 solid 1px;
+cursor: pointer;
+white-space: nowrap;
 
+&:hover{
+    background: rgb(235, 52, 82);
+    border: #fff solid 1px;
+    color: #fff;
+}
+
+@media(max-width: 960px){
+    text-align: center;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 24px;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+};
 `

@@ -23,6 +23,13 @@
   margin-left: auto;
 }
 
+img {
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 @media screen and (max-width: 991px) {
   .container {
     padding-right: 30px;
