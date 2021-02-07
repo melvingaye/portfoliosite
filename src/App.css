@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'PT Sans', sans-serif;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
 }
 
 .home, .contact, .projects, .readings {
