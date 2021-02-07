@@ -11,7 +11,8 @@ function Readings(){
 
     useEffect(()=>{
         document.title='Melvin - Reading List'
-    })
+        window.scrollTo(0, 0)
+    },[])
 
     return(
         <ReadingProvider>
@@ -39,4 +40,9 @@ function Readings(){
     )
 }
 
+//additional features ---add calendar compoenent for tracking amount of books read a month, maybe even pages read a week
+//color tracker for currently read book
+//or by category to show which type I'm reading more of
+// add pop up side menu for items - calendar, suggestion page, dashboard.....vintage libray like
+//add other search fields to drill down into searching
 export default Readings;

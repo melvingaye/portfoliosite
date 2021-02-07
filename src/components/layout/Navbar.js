@@ -8,46 +8,39 @@ import { Button } from '../utilities/Button'
 function Navbar(){
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
+    const [shadow, setShadow] = useState(false)
 
-    const handleClick = ()=> setClick(!click)
     const closeMobileMenu = () => setClick(false);
-
-    const showButton = ()=>{
-        if(window.innerWidth <= 960){
-            setButton(false)
-        }else{
-            setButton(true)
-        }
-    }
-
-    window.addEventListener('resize', showButton)
+    
+    window.addEventListener('scroll', ()=>{window.scrollY > 0 ? setShadow(true) : setShadow(false)})
+    window.addEventListener('resize', ()=>{window.innerWidth <= 960 ? setButton(false) : setButton(true)})
 
     return(
         <>
          <IconContext.Provider value={{color: '#111'}}>
-        <div className="navbar">
+        <div className={ shadow ? "navbar scroll-active" : "navbar"}>
             <div className="navbar-container container">
                 <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
                   <FaIcons.FaLaptopCode className="navbar-icon"/>
                   Melvin Gaye
                 </Link>
-                <div className="menu-icon"onClick={handleClick}>
+                <div className="menu-icon"onClick={e => setClick(!click)}>
                 {click ? <FaIcons.FaTimes/> : <FaIcons.FaBars/>}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'} onClick={closeMobileMenu}>
                 <li className="nav-item">
                     <Link to='/' className="nav-links">
-                    Home
+                    HOME
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to='/projects' className="nav-links">
-                    Projects
+                    PROJECTS
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to='/reading-list' className="nav-links">
-                    Readings
+                    READING
                     </Link>
                 </li>
                 <li className="nav-btn">
