@@ -1,18 +1,10 @@
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
 
-const fadeIn = keyframes`
-0%, 50%, 100% {
-    opacity: 1;
- }
- 25%, 75% {
-    opacity: 0;
- }
-`
 
 export const HeroSection = styled.div
 `
 background-color: ${props => props.isBackgroundDark ? '#f5f5f5' : '#fff'};
-padding: 160px 0;
+padding: ${props => `${props.paddingWidth || 100}px ${props.paddingHeight || 0}px`};
 `
 
 export const HeroRow = styled.div
@@ -90,13 +82,14 @@ export const ImageHolder = styled.img.attrs(props=>({
     src: props.imageSource || '/images/img-1.svg'
 }))
 `
-max-width: 95%;
 margin-top: 0;
-margin-right: 0;
-margin-left: 10px;
+margin: auto;
 padding-right: 0;
+border: 0;
+max-width: 100%;
+display: inline-block;
 
-@media(min-width: 1200px){
+@media(min-width: 1300px){
     transform: ${props => `scale(${props.scaleSize})` || 'scale(1)'};
     margin-left: 25px;
 }
@@ -105,7 +98,7 @@ padding-right: 0;
 export const LandingInput = styled.input
 `
 flex-basis: 1;
-width: 80%;
+width: 100%;
 border-radius: 4px;
 padding-left: 10px;
 border: 1px solid #dadada;
@@ -122,7 +115,7 @@ export const HeroButton = styled.button
 `
 padding: 14px 20px;
 border-radius: 4px;
-width: 80%;
+width: 100%;
 text-decoration: none;
 font-size: 20px;
 outline: none;

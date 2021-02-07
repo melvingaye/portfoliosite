@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'PT Sans', sans-serif;
-  /*border: 1px solid red;*/
+  border: 1px solid red;
 }
 
 .home, .contact, .projects, .readings {
@@ -21,13 +21,6 @@
   max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
-}
-
-img {
-  border: 0;
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
 }
 
 @media screen and (max-width: 991px) {

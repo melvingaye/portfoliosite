@@ -35,7 +35,7 @@ export const LandingPage = (props)=>{
                     </Hero.HeroColumn>
                     <Hero.HeroColumn>
                         <Hero.ImageWrapper>
-                            <Hero.ImageHolder imageSource="images/landing-page.svg" scaleSize={1.6}/>
+                            <Hero.ImageHolder imageSource="images/landing-7.svg" scaleSize={1.1}/>
                         </Hero.ImageWrapper>
                     </Hero.HeroColumn>                                           
                 </Hero.HeroRow>
