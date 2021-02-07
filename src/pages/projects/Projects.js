@@ -4,7 +4,7 @@ function Projects(){
  
 
     useEffect(()=>{
-        document.title='Melvin Gaye - Projects'
+        document.title='Software Engineer Resume Projects | Melvin Gaye'
         window.scrollTo(0, 0)
     },[])
 

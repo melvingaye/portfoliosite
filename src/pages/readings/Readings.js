@@ -10,7 +10,7 @@ function Readings(){
 
 
     useEffect(()=>{
-        document.title='Melvin - Reading List'
+        document.title='Reading List | Melvin Gaye'
         window.scrollTo(0, 0)
     },[])
 

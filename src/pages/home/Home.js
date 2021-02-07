@@ -4,7 +4,7 @@ import {LandingPage} from '../../components/landingpage/LandingPage'
 
 function Home(){
     useEffect(()=>{
-        document.title='Melvin Gaye - Fullstack Software Engineer'
+        document.title='Fullstack Software Engineer | Melvin Gaye'
         window.scrollTo(0, 0)
     },[])
 

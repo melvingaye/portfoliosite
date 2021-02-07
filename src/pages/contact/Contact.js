@@ -2,7 +2,10 @@ import React, { useEffect } from 'react'
 import ContactForm from './ContactForm'
 
 const Contact = () =>{
-    useEffect(()=>{window.scrollTo(0, 0)},[])
+    useEffect(()=>{
+        document.title='Fullstack Software Engineer For Hire | Melvin Gaye'
+        window.scrollTo(0, 0)
+    },[])
     
     return(
         <>
