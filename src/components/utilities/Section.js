@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Button} from '../utilities/Button'
 import * as Hero from './styles'
 import {WorkDescription} from '../landingpage/WorkDescription'
 
