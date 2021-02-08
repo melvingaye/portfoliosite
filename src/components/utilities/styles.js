@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const HeroSection = styled.div
 `
 background-color: ${props => props.isBackgroundDark ? '#f5f5f5' : '#fff'};
-padding: ${props => `${props.paddingWidth || 100}px ${props.paddingHeight || 0}px`};
+padding: ${props => `${props.paddingHeight || 100}px ${props.paddingWidth || 0}px`};
 `
 
 export const HeroRow = styled.div
@@ -67,7 +67,7 @@ color: ${props => props.isDarkHeading ?  '#fff' : '#111'};
 export const Description = styled.p
 `
 max-width: 440px;
-margin-bottom: 35px;
+margin-bottom: 25px;
 font-size: 18px;
 line-height: 24px;
 color: ${props => props.isDarkDescription || '#111'};
@@ -113,17 +113,19 @@ outline: none;
 `
 export const HeroButton = styled.button
 `
-padding: 14px 20px;
+padding: ${props => `${props.btnHeightPadding || 14}px ${props.btnWidthPadding || 20}px`};
 border-radius: 4px;
-width: 100%;
+width: ${props => props.btnWidthPercent || '100%'};
 text-decoration: none;
-font-size: 20px;
+font-size: ${props => props.btnFontSize || '20px'};
 outline: none;
-background: #111;
-color: #fff;
-border: #111 solid 1px;
+background:${props => props.backgroundColor || '#111'};
+color: ${props => props.color || '#fff'};
+border: ${props => `${props.backgroundColor||'#111'} solid 1px`};
+text-align: center;
 cursor: pointer;
 white-space: nowrap;
+transition: all 0.3s ease-out;
 
 &:hover{
     background: rgb(235, 52, 82);
@@ -131,16 +133,8 @@ white-space: nowrap;
     color: #fff;
 }
 
-@media(max-width: 960px){
-    text-align: center;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
+@media(max-width: 960px){   
     font-size: 24px;
-    background-color: transparent;
-    color: #fff;
     padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
 };
 `
