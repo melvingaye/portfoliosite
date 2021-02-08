@@ -22,11 +22,14 @@ export const Section = (props) =>{
                             >{props.headingText ? props.headingText : 'Stay protected 24/7 anywhere anytime'}
                             </Hero.Heading>
                             <WorkDescription jobDescriptions={props.jobDescriptions} iconSources={props.iconSources}/>
-                            <Link to={ props.linkTexT ? props.linkTexT : '/'}>
-                            <Button 
+                            <Link to={ props.linkText ? props.linkText : '/'}>
+                            <Hero.HeroButton btnWidthPercent={"50%"}>
+                            {props.btnText ? props.btnText : 'VIEW PROJECTS'}
+                            </Hero.HeroButton>
+                            {/* <Button 
                             btnStyle='btn--outline'>
                             {props.btnText ? props.btnText : 'VIEW PROJECTS'}
-                            </Button>
+                            </Button> */}
                         </Link>
                     </Hero.Wrapper>
                 </Hero.HeroColumn>

@@ -136,5 +136,6 @@ transition: all 0.3s ease-out;
 @media(max-width: 960px){   
     font-size: 24px;
     padding: 14px 20px;
+    width: 100%;
 };
 `
