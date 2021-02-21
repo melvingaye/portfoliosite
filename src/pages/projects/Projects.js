@@ -17,25 +17,21 @@ function Projects({match}){
         window.open(uri)
     }
 
-    const performLogin = async () => {
-        const code = query.get('code') ? query.get('code') : '';
-        
-        if(code !== '')
-        {
-            console.log(code);
-            // const profile = await linkedInLogin(code);
-            // setProfile(profile)
-        }
-    }
-
     useEffect(()=>{
         document.title='Software Engineer Resume Projects | Melvin Gaye'
         window.scrollTo(0, 0)
+        // perform login on this page only when there is a 
         async function login(){
-            await performLogin();
+            if(query.get('code') !== '')
+            {
+                const code = query.get('code')
+                console.log(code);
+                const profile = await linkedInLogin(code);
+                setProfile(profile)
+            }
         }
         login();
-    },[])
+    },[query])
 
     return(
         <div className="projects">
