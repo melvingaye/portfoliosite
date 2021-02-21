@@ -16,22 +16,21 @@ function Projects({match}){
         const response = await linkedInAuth();
         window.open(response.data)
     }
-
-    const makeRequest = async () => {
-        if(query.get('code') !== '')
-        {
-            const code = query.get('code')
-            console.log(code);
-            const profile = await linkedInLogin(code);
-            setProfile(profile)
-        }
-    }
-    
+  
     useEffect(()=>{
         document.title='Software Engineer Resume Projects | Melvin Gaye'
         window.scrollTo(0, 0)
+        const makeRequest = async () => {
+            if(query.get('code') !== '')
+            {
+                const code = query.get('code')
+                console.log(code);
+                const profile = await linkedInLogin(code);
+                setProfile(profile)
+            }
+        }
         makeRequest();
-    })
+    });
 
     return(
         <div className="projects">

@@ -98,11 +98,11 @@ async function getProfileEmail(accessToken) {
 }
 
 exports.handler = async (event) => {
-    if (event.httpMethod !== "POST") {
+    if (event.httpMethod !== "GET") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
-    console.log(`linkedin-login ${event}`)
+    console.log(`linkedin-login ${JSON.parse(event)}`)
     const params = JSON.parse(event.body);
     console.log(`linkedin-login ${params}`)
     const { code } = params

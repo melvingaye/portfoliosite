@@ -51,7 +51,7 @@ async function linkedInAuth(){
 async function linkedInLogin(code){ 
   console.log(`STARTED linkedInLogin linkedin-login ${code}`)
   const config = {
-      method: 'post',
+      method: 'get',
       url: '/.netlify/functions/linkedin-login',
       params: code
   }
