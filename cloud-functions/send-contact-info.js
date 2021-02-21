@@ -8,7 +8,6 @@ exports.handler = async (event) => {
 
   // When the method is POST, the name will no longer be in the event’s
   // queryStringParameters – it’ll be in the event body encoded as a queryString
-  console.log(JSON.stringify(event))
   const params = JSON.parse(event.body);
 
   console.log(params.message)

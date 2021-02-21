@@ -34,5 +34,35 @@ function sendContactInfo(mesg){
     .catch(err =>{console.log(err)})
 }
 
+async function linkedInAuth(){
 
-export {sendBookSuggestion, sendContactInfo} 
+  const config = {
+      method: 'get',
+      url: '/.netlify/functions/linkedin-authorize',
+  }
+
+  try {
+    const uri = await axios(config);
+    return uri;
+  } catch (error) {
+    return error;
+  }
+
+}
+
+async function linkedInLogin(code){
+  const config = {
+      method: 'post',
+      url: '/.netlify/functions/linkedin-login',
+      params: code
+  }
+
+  try {
+    const res = await axios(config);
+    return res;
+  } catch (error) {
+    return error;
+  }
+}
+
+export {sendBookSuggestion, sendContactInfo, linkedInAuth, linkedInLogin} 
