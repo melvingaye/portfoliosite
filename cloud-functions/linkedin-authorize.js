@@ -10,10 +10,17 @@ function getAuthCode() {
         scope: 'r_liteprofile r_emailaddress',
     });
 
+    console.log(`getAuthCode: ${LINKEDIN_AUTH_ENDPOINT}${authorizationCodeParams.toString()}`);
     return `${LINKEDIN_AUTH_ENDPOINT}${authorizationCodeParams.toString()}`;
 }
 
 exports.handler = async (event) => {
+    if (event.httpMethod !== "GET") {
+        return { statusCode: 405, body: "Method Not Allowed" };
+    }
+    
+    console.log(`linkedin-authorize: ${event}`);
     const uri = getAuthCode();
+    console.log(`linkedin-authorize: ${uri}`);
     return {statusCode: 200, body: uri}
 };
