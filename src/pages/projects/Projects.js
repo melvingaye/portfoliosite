@@ -12,7 +12,7 @@ function Projects({match}){
     // const query = useQuery();
 
     const handleClick = async () => {
-        const uri = await linkedInAuth();
+        const uri = await linkedInAuth().data;
         console.log(uri)
         window.open(uri)
     }
