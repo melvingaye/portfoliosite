@@ -35,15 +35,12 @@ function sendContactInfo(mesg){
 }
 
 async function linkedInAuth(){
-  console.log(`STARTED linkedInAuth linkedin-login`)
   const config = {
       method: 'get',
       url: '/.netlify/functions/linkedin-authorize',
   }
-  console.log(`linkedInAuth linkedin-login ${config}`)
   try {
     const uri = await axios(config);
-    console.log(`linkedInAuth linkedin-login ${uri}`)
     return uri;
   } catch (error) {
     return error;
