@@ -12,9 +12,9 @@ function Projects({match}){
     // const query = useQuery();
 
     const handleClick = async () => {
-        const uri = await linkedInAuth().data;
-        console.log(uri)
-        window.open(uri)
+        const response = await linkedInAuth();
+        console.log(response.data)
+        window.open(response.data)
     }
 
     // const makeRequest = async () => {
