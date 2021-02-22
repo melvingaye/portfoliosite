@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 // import {useLocation} from 'react-router-dom'
 import {linkedInAuth} from '../../apis/requests'
 
-function Projects({location}){
+function Projects(){
     // const [profile, setProfile] = useState({
     //     firstname: '',
     //     lastname: '',
@@ -14,12 +14,16 @@ function Projects({location}){
 
     const handleClick = async () => {
         const response = await linkedInAuth();
-        window.open(response.data)
+        // open the linkedin-social auth in the current window
+        window.location.href = response.data;
     }
   
     useEffect(()=>{
         document.title='Software Engineer Resume Projects | Melvin Gaye'
         window.scrollTo(0, 0)
+        const user = localStorage.getItem('user');
+        console.log(user);
+
         // const makeRequest = async () => {
         //     const code = query.get('code')
         //     console.log(code);
