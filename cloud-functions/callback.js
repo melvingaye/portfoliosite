@@ -42,7 +42,7 @@ exports.handler = async function(event){
     }
     console.log(`Entered callback ${event.queryStringParameters.code}`)
     const authCode = event.queryStringParameters.code;
-    const accesToken = getToken(authCode)
+    const accesToken = await getToken(authCode)
     const html = `
     <html>
     <script>
