@@ -120,7 +120,7 @@ exports.handler = async function(event){
     <html>
     <script>
     window.localStorage.setItem('user', '${user}');
-    window.location.href='/projects';
+    window.location.href='/';
     </script>
     </html>
     `
