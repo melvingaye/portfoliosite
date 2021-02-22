@@ -27,7 +27,7 @@ async function getToken(authcode) {
     try {
         // eslint-disable-next-line camelcase
         const data = await axios(axiosRequestConfig);
-        console.log(`getToken: ${data}`);
+        console.log(`getToken: ${JSON.stringify(data, null, 2)}`);
         console.log(`getToken: ${data.access_token}`);
         // eslint-disable-next-line camelcase
         return data.access_token;
