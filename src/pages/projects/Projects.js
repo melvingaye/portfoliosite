@@ -19,8 +19,11 @@ function Projects(){
         document.title='Software Engineer Resume Projects | Melvin Gaye'
         window.scrollTo(0, 0)
         const userstr = localStorage.getItem('user');
-        const profile = userstr.length > 0 ? JSON.parse(userstr) : {};
-        setProfile(profile)
+        if(userstr){
+            const profile = JSON.parse(userstr);
+            setProfile(profile)
+        }
+
     },[]);
 
     return(
