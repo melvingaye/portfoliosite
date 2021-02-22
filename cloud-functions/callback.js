@@ -26,11 +26,11 @@ async function getToken(authcode) {
     console.log(`getToken: ${axiosRequestConfig}`);
     try {
         // eslint-disable-next-line camelcase
-        const { data: { access_token } } = await axios(axiosRequestConfig);
+        const data = await axios(axiosRequestConfig);
         console.log(`getToken: ${data}`);
-        console.log(`getToken: ${access_token}`);
+        console.log(`getToken: ${data.access_token}`);
         // eslint-disable-next-line camelcase
-        return access_token;
+        return data.access_token;
     } catch (error) {
         return error;
     }
@@ -51,5 +51,5 @@ exports.handler = async function(event){
     </script>
     </html>
     `
-    return html;
+    return {statusCode: 200, body: html};
 }
