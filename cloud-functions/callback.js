@@ -40,8 +40,8 @@ exports.handler = async function(event){
     if (event.httpMethod !== "GET") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
-    console.log(JSON.parse(event));
-    const authCode = 'test';
+    console.log(`Entered callback ${event.queryStringParameters.code}`)
+    const authCode = event.queryStringParameters.code;
     const accesToken = getToken(authCode)
     const html = `
     <html>
