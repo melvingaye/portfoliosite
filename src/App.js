@@ -1,6 +1,6 @@
 import './App.css';
 
-import {HashRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './components/layout/Navbar';
 import Home from './pages/home/Home'
 import Projects from './pages/projects/Projects'
@@ -13,10 +13,12 @@ function App() {
     <Router>
       <Navbar/>
       <Switch>
-        <Route path='/' exact component={Home}/>
-        <Route path='/projects' component={Projects}/>
+        <Route exact path='/' component={Home}/>
+        {/* <Route path='/projects?code=:' component={Projects}/> */}
+        <Route exact path='/projects' component={Projects}/>
         <Route path='/reading-list' component={Readings}/>
         <Route path='/contact' component={Contact}/>
+        <Route path='/*' component={Home}/>
       </Switch>
       <Footer/>
     </Router>
