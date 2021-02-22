@@ -47,7 +47,7 @@ exports.handler = async function(event){
     <html>
     <script>
     window.localStorage.setItem('token', '${accesToken}');
-    window.location.href='/';
+    window.location.href='/projects';
     </script>
     </html>
     `
